@@ -7,10 +7,8 @@ import com.pooranachandran.tech.exception.*;
 import com.pooranachandran.tech.service.VendingMachine;
 import com.pooranachandran.tech.service.Wallet;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Predicate;
 
 /**
  * Vending Machine which provides user option to
@@ -18,6 +16,7 @@ import java.util.Map;
  * 2.Select Product
  * 3.CheckOut
  * 4.Clear Cart
+ * 5.Print Receipt
  *
  * @author Pooranachandran Muthusamy
  * @since 21-Aug-2020
@@ -133,5 +132,29 @@ public class DeloitteVendingMachine implements VendingMachine {
                 e.printStackTrace();
             }
         });
+    }
+
+    @Override
+    public void printReceipt(CheckOutBag checkOutBag) {
+        Set<Product> productSet = new TreeSet(checkOutBag.getPurchasedProducts());;
+        String border="----------------------------------------------------------";
+        System.out.println("------------------DELOITTE VENDING MACHINE---------------------");
+        System.out.println(border);
+        System.out.printf("|%-20s |%-10s |%-10s |%-10s|\n", "Name", "Price","Qty.","Total");
+        System.out.println(border);
+        productSet.forEach(product -> {
+            long quantity=checkOutBag.getPurchasedProducts().stream().filter(product1 -> (product == product1)).count();
+            System.out.printf("|%-20s |%-10s |%-10s |%-10s|\n", product.name(), product.centPrice,quantity,product.centPrice*quantity);
+        });
+
+        System.out.println(border);
+        System.out.printf("%-33s Grand Total : %-10s\n","",checkOutBag.getBillValueInCents());
+
+        System.out.printf("%-15s : %-10s\n","INSERTED COINS",checkOutBag.getBillValueInCents()+checkOutBag.getBalanceInCents());
+        System.out.printf("%-15s : %-10s\n","BILLABLE COINS",checkOutBag.getBillValueInCents());
+        System.out.printf("%-15s : %-10s\n","CHANGE COINS",checkOutBag.getBalanceCoins());
+        System.out.println("NOTE : All currencies are displayed in CENTS");
+        System.out.println("Copyright (c) to pooranachandran.com");
+        System.out.println("------------------THANKS FOR VISITING---------------------");
     }
 }

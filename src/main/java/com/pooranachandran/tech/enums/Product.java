@@ -10,7 +10,8 @@ public enum Product {
     ECLAIRS(1),
     COKE(5),
     MOUNTAINDEW(5),
-    DIARYMILK(2);
+    DIARYMILK(2),
+    NUTS(18);
 
     Product(int centPrice){
         this.centPrice=centPrice;

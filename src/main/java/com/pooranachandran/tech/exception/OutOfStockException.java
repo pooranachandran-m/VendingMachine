@@ -9,6 +9,6 @@ import com.pooranachandran.tech.enums.Product;
  */
 public class OutOfStockException extends Exception {
     public OutOfStockException(Product product){
-        super(product.name() + "is not available in our inventory.");
+        super(product.name() + " is not available in our inventory.");
     }
 }

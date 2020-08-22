@@ -7,6 +7,6 @@ package com.pooranachandran.tech.exception;
  */
 public class ChangeNotAvailableException extends Exception {
     public ChangeNotAvailableException(int changeInCents){
-        super("Wallet doesnt have valid change denomination."+changeInCents);
+        super("Wallet doesnt have valid change denomination. : "+changeInCents);
     }
 }

@@ -20,4 +20,6 @@ public interface VendingMachine {
 
     void clearCart();
 
+    void printReceipt(CheckOutBag checkOutBag);
+
 }
