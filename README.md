@@ -37,33 +37,33 @@ Products
     NUTS(18);
 ```
 
-####1.Get valid vending machine instance from factory 
+#### 1.Get valid vending machine instance from factory 
 ```
  //Factory to manufacture vending machines
  VendingMachine deloitteMachine=VendingMachineFactory.manufactureVendingMachine(VendingMachineType.DELOITTE);
 ```
 
-####2.Insert the Coins
+#### 2.Insert the Coins
 ```
 // Insert 15 Cents
 deloitteMachine.insertCoin(DIME);//10
 deloitteMachine.insertCoin(NICKLE);//15
 ```
 
-####3.Add Products to the cart
+#### 3.Add Products to the cart
 ```
 // Add Product worth 7 Cents
 deloitteMachine.addProductToCart(Product.COKE);//5
 deloitteMachine.addProductToCart(Product.DIARYMILK);//2
 ```
 
-####4.Check Out the cart and receive CheckoutBag containing Product and Change Coins
+#### 4.Check Out the cart and receive CheckoutBag containing Product and Change Coins
 ```
 //Received the Bag with Product and Coins
 CheckOutBag checkOutBag=deloitteMachine.checkOut();
 ```
 
-####5.Print the receipt by passing checkout Bag instance to know detailed summary
+#### 5.Print the receipt by passing checkout Bag instance to know detailed summary
 ```
 // Bill 7 Cents and Balance 8 Cents
 deloitteMachine.printReceipt(checkOutBag);
