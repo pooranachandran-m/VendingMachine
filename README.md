@@ -1,6 +1,6 @@
 # Vending Machine
 
-Vending Machine Implementation in Java using Coins and Product as enums.
+Vending Machine Implementation in Java using Coins and Product as enums. 
 
 ## Problem Statement
 Write code to implement a Vending machine that has a bunch of products like chocolates, candy,
@@ -95,3 +95,7 @@ InvalidUserOperationException
 
 ## Running the tests
 Test cases for all the classes are available under respective package name ends with *Test
+
+## Authors
+* **Pooranachandran Muthusamy** - *Initial work* - [Pooranachandran Muthusamy](https://github.com/writemechandru)
+* **Pooranachandran Muthusamy** - *Initial work* - [www.pooranachandran.com](http://www.pooranachandran.com)
