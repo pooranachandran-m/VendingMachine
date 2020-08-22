@@ -22,6 +22,7 @@ public class DeloitteInventory implements ProductInventory {
         putProducts(Product.COKE, 10);
         putProducts(Product.DIARYMILK, 35);
         putProducts(Product.MOUNTAINDEW, 2);
+        putProducts(Product.NUTS, 5);
     }
 
     @Override

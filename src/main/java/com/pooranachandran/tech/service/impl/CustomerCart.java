@@ -7,6 +7,8 @@ import com.pooranachandran.tech.service.Cart;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.pooranachandran.tech.exception.InvalidUserOperationException.MSG_REMOVE_NON_EXISTING_PRODUCT;
+
 /**
  * Class to hold the Customers product list and to calculate the total bill info
  *
@@ -30,7 +32,7 @@ public class CustomerCart implements Cart {
         if (productList.remove(product))
             return product;
         else
-            throw new InvalidUserOperationException("Product you are trying to remove doesnt exist in your cart");
+            throw new InvalidUserOperationException(MSG_REMOVE_NON_EXISTING_PRODUCT);
     }
 
     @Override

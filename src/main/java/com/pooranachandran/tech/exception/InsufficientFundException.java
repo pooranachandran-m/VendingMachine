@@ -7,6 +7,6 @@ package com.pooranachandran.tech.exception;
  */
 public class InsufficientFundException extends Exception {
     public InsufficientFundException(int overAllCartValueInCents, int userCoinInCents){
-        super("Coins doesnt meet the overall cart value. Required cents : "+(overAllCartValueInCents-userCoinInCents));
+        super("Coins doesnt meet the overall cart value. Required cents : "+(overAllCartValueInCents-userCoinInCents)+" . Please try adding coins or adjust products from the cart");
     }
 }

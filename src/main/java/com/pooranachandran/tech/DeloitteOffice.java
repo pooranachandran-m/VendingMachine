@@ -42,6 +42,8 @@ public class DeloitteOffice {
             e.printStackTrace();
         } catch (InsufficientFundException e) {
             e.printStackTrace();
+        } catch (InvalidUserOperationException e) {
+            e.printStackTrace();
         }
     }
 }

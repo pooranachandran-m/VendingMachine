@@ -8,6 +8,9 @@ import com.pooranachandran.tech.service.impl.DeloitteVendingMachine;
 
 /**
  * Factory class pattern to create VendingMachine instances
+ *
+ * @author Pooranachandran Muthusamy
+ * @since 22-Aug-2020
  */
 public class VendingMachineFactory {
     public static VendingMachine manufactureVendingMachine(VendingMachineType vendingMachineType) throws InvalidProductQuantityException, VendingMachineDesignNotAvailableException {

@@ -16,7 +16,7 @@ public interface VendingMachine {
 
     void removeProductFromCart(Product product) throws OutOfStockException, InvalidProductQuantityException, InvalidUserOperationException;
 
-    CheckOutBag checkOut() throws InsufficientFundException, ChangeNotAvailableException;
+    CheckOutBag checkOut() throws InsufficientFundException, ChangeNotAvailableException, InvalidUserOperationException;
 
     void clearCart();
 

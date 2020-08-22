@@ -28,6 +28,8 @@ public class DeloitteVendingMachine implements VendingMachine {
     private CustomerCart customerCart;
     private Wallet customerCoinBag;
 
+    public static final String E="";
+
     public DeloitteVendingMachine() throws InvalidProductQuantityException {
         deloitteInventory = new DeloitteInventory();
 
@@ -67,7 +69,9 @@ public class DeloitteVendingMachine implements VendingMachine {
     }
 
     @Override
-    public CheckOutBag checkOut() throws InsufficientFundException, ChangeNotAvailableException {
+    public CheckOutBag checkOut() throws InsufficientFundException, ChangeNotAvailableException, InvalidUserOperationException {
+        if(customerCart.getCartList().isEmpty())
+            throw new InvalidUserOperationException(InvalidUserOperationException.MSG_EMPTY_CART_CHECKOUT);
         CheckOutBag checkOutBag = new CheckOutBag();
         int cartTotal = customerCart.getTotalAmountInCents();
         int userCoinsTotal = customerCoinBag.getBalanceInCents();
@@ -109,16 +113,16 @@ public class DeloitteVendingMachine implements VendingMachine {
                     continue;
 
                 } else {
-                    clearCart();
                     throw new ChangeNotAvailableException(changeBalanceInCents);
                 }
             }
             checkOutBag.setBalanceCoins(coinChanges);
         } else {
-            clearCart();
             throw new InsufficientFundException(cartTotal, userCoinsTotal);
         }
         checkOutBag.setPurchasedProducts(customerCart.getCartList());
+        //Clear Cart Before giving the Bag and change to customers
+        clearCart();
         return checkOutBag;
     }
 
@@ -150,9 +154,10 @@ public class DeloitteVendingMachine implements VendingMachine {
         System.out.println(border);
         System.out.printf("%-33s Grand Total : %-10s\n","",checkOutBag.getBillValueInCents());
 
-        System.out.printf("%-15s : %-10s\n","INSERTED COINS",checkOutBag.getBillValueInCents()+checkOutBag.getBalanceInCents());
-        System.out.printf("%-15s : %-10s\n","BILLABLE COINS",checkOutBag.getBillValueInCents());
-        System.out.printf("%-15s : %-10s\n","CHANGE COINS",checkOutBag.getBalanceCoins());
+        System.out.printf("%-20s : %-10s\n","INSERTED COINS",checkOutBag.getBillValueInCents()+checkOutBag.getBalanceInCents());
+        System.out.printf("%-20s : %-10s\n","BILLABLE COINS",checkOutBag.getBillValueInCents());
+        System.out.printf("%-20s : %-10s\n","CHANGE COINS",checkOutBag.getBalanceInCents());
+        System.out.printf("%-20s : %-10s\n","CHANGE DENOMINATION",checkOutBag.getBalanceCoins());
         System.out.println("NOTE : All currencies are displayed in CENTS");
         System.out.println("Copyright (c) to pooranachandran.com");
         System.out.println("------------------THANKS FOR VISITING---------------------");
