@@ -9,7 +9,7 @@ import com.pooranachandran.tech.enums.Product;
  */
 public class InvalidUserOperationException extends Exception {
     public static final String MSG_EMPTY_CART_CHECKOUT="User cart is empty. Please add some product into carts before checkout";
-    public static final String MSG_REMOVE_NON_EXISTING_PRODUCT="User cart is empty. Please add some product into carts before checkout";
+    public static final String MSG_REMOVE_NON_EXISTING_PRODUCT="Product you are trying to remove is not available in cart";
     public InvalidUserOperationException(String message){
         super(message);
     }

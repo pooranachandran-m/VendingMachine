@@ -45,7 +45,6 @@ class DeloitteVendingMachineTest {
         deloitteVendingMachine.addProductToCart(Product.DIARYMILK);//2
         deloitteVendingMachine.addProductToCart(Product.DIARYMILK);//2
         deloitteVendingMachine.addProductToCart(Product.DIARYMILK);//2
-        deloitteVendingMachine.removeProductFromCart(Product.NUTS);
 
         CheckOutBag checkOutBag = deloitteVendingMachine.checkOut();
         deloitteVendingMachine.printReceipt(checkOutBag);
